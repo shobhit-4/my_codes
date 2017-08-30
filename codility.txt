@@ -1,0 +1,40 @@
+// you can also use imports, for example:
+// import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        int P=A.length;
+        long sum=0L,sum1=0L,sum2=0L;
+        int ans=-1;
+        long sum_arr[] = new long[P];
+       
+        for (int i=0; i<P; i++){
+            long a=A[i];
+            sum=sum+a;
+            sum_arr[i]=sum;
+            }
+        
+        for (int i=0; i<P; i++){
+            long a=A[i];
+                if(i==0)
+                    sum1=0L;
+                else
+                    sum1=sum_arr[i-1];
+                
+				if(i==(P-1))
+					sum2=0L;
+				else
+					sum2=sum-(a+sum1);
+            if(sum1==sum2){
+                ans=i;
+                break;
+                }
+            }
+        return ans;
+        
+    }
+}
