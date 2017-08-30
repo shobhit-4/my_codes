@@ -1,0 +1,71 @@
+import java.util.Arrays;
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        Arrays.sort(A);
+        int Min_dist = A[1] - A[0];
+        for(int i =0; i< A.length -1; i++){
+            if(A[i+1]-A[i] < Min_dist)
+            Min_dist = A[i+1] -A[i];
+            }
+        return Min_dist;
+    }
+}
+
+// you can also use imports, for example:
+// import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public int solution(String A, String B) {
+        // write your code in Java SE 8
+        int A_win=0;
+		int N=A.length();
+		int[] A_int = new int[N];
+		for (int i=0;i<N;i++)
+		{
+		char c = A.charAt(i);
+		if(c=='T')
+		  A_int[i]=10;
+		else if(c=='J')
+		  A_int[i]=11;
+		else if(c=='Q')
+		  A_int[i]=12;
+		else if(c=='K')
+		  A_int[i]=13;
+		else if(c=='A')
+		  A_int[i]=14;
+		 else {
+			String s = Character.toString(c);
+			A_int[i]=Integer.parseInt(s);
+		      }
+		}
+	int[] B_int = new int[N];
+		for (int i=0;i<N;i++)
+		{
+		char c = B.charAt(i);
+		if(c=='T')
+		  B_int[i]=10;
+		else if(c=='J')
+		  B_int[i]=11;
+		else if(c=='Q')
+		  B_int[i]=12;
+		else if(c=='K')
+		  B_int[i]=13;
+		else if(c=='A')
+		  B_int[i]=14;
+		 else {
+			String s = Character.toString(c);
+			B_int[i]=Integer.parseInt(s);
+		      }
+		}
+	for (int i=0;i<N;i++)
+    	{
+    		if(A_int[i]>B_int[i])
+    		A_win++;
+    	}
+    return(A_win);
+}
+}
